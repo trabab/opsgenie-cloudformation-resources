@@ -33,4 +33,4 @@ jobs:
     - name: Get java version
         run: java -version
     - name: Get java version
-        run: ../script.sh
+        run: ./.github/workflows/script.sh

@@ -38,4 +38,9 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install cloudformation-cli cloudformation-cli-java-plugin cloudformation-cli-go-plugin cloudformation-cli-python-plugin --upgrade
+        pip install cloudformation-cli cloudformation-cli-python-plugin --upgrade
+
+    - name: Submit resources
+      run: |
+        cd opsgenie_team
+        cfn submit

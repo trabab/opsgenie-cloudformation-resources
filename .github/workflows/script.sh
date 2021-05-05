@@ -10,6 +10,7 @@ def updateJsonFile():
     with open('opsgenie_team/overrides.json', 'r') as f:
         data = json.load(f)
         data["CREATE"]["/OpsgenieApiKey"]= os.environ['OPSGENIE_API_KEY']
+        data["CREATE"]["/OpsgenieApiEndpoint"]= os.environ['OPSGENIE_API_URL']
         print(data);
         with open('opsgenie_team/overrides.json', 'w') as f1:
             json.dump(data, f1, indent=4)

@@ -36,3 +36,5 @@ jobs:
       run: chmod +x .github/workflows/script.sh
     - name: Update api key
       run: ./.github/workflows/script.sh
+      env:
+        OPSGENIE_API_KEY: ${{ secrets.OPSGENIE_API_KEY }}

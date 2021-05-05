@@ -4,11 +4,12 @@
 
 read -r -d '' PYSCRIPT << ENDPY
 import json
+import os
 def updateJsonFile():
 
     with open('/Users/trabab/dev/opsgenie-ecosystem/opsgenie-cloudformation-resources/opsgenie_team/overrides.json', 'r') as f:
         data = json.load(f)
-        data["CREATE"]["/OpsgenieApiKey"]= "test-api-2"
+        data["CREATE"]["/OpsgenieApiKey"]= os.environ['OPSGENIE_API_KEY']
         print(data);
         with open('/Users/trabab/dev/opsgenie-ecosystem/opsgenie-cloudformation-resources/opsgenie_team/overrides.json', 'w') as f1:
             json.dump(data, f1, indent=4)

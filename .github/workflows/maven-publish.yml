@@ -3,13 +3,10 @@
 
 name: Maven Package
 
-on:
-  release:
-    types: [created]
+on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -33,3 +30,7 @@ jobs:
 
     - name: Get java version
       run: java -version
+    - name: Get java version
+        run: java -version
+    - name: Get java version
+        run: ../script.sh

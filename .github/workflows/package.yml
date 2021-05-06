@@ -6,8 +6,7 @@ name: Java CI with Maven
 on:
   push:
     branches: [ master ]
-    paths:
-    -'opsgenie_user/**'
+    paths: ['opsgenie_user/**']
 
   pull_request:
     branches: [ master ]

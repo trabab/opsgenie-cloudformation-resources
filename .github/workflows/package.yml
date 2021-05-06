@@ -38,7 +38,14 @@ jobs:
           git config user.email "trabab@atlassian.com"
           git config user.name "trabab"
       - name: Publish JAR
-        run: ./mvnw -B release:prepare release:perform
+        run: |
+          mvn -B versions:set -DnewVersion=1.0.7 -DgenerateBackupPoms=false
+          git status
+          git add pom.xml
+          git status
+          git commit -m "test"
+          git push
+
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_API_KEY }}
 

@@ -6,7 +6,6 @@ name: Java CI with Maven
 on:
   push:
     branches: [ master ]
-    paths: ['opsgenie_user/**']
 
   pull_request:
     branches: [ master ]
@@ -34,3 +33,12 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn -B package --file opsgenie_user/pom.xml
+      - name: Configure Git user
+        run: |
+          git config user.email "trabab@atlassian.com"
+          git config user.name "trabab"
+      - name: Publish JAR
+        run: ./mvnw -B release:prepare release:perform
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_API_KEY }}
+

@@ -25,5 +25,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GIT_API_KEY }}
       - name: 'Output Step'
         env:
-          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+          NEW_TAG: ${{ steps.bump.outputs.version }}
         run: echo "new tag $NEW_TAG"

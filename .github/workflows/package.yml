@@ -18,11 +18,9 @@ jobs:
     steps:
       - name: "Checkout source code"
         uses: "actions/checkout@v2"
-        with:
-          ref: ${{ github.ref }}
       - name: "Automated Version Bump"
         id: version-bump
-        uses: "phips28/gh-action-bump-version@master"
+        uses: nnichols/maven-version-bump-action@v3
         with:
           tag-prefix: ''
         env:

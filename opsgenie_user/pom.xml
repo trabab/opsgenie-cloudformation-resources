@@ -8,7 +8,7 @@
     <groupId>com.atlassian.opsgenie.user</groupId>
     <artifactId>atlassian-opsgenie-user-handler</artifactId>
     <name>atlassian-opsgenie-user-handler</name>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <packaging>jar</packaging>
 
     <properties>

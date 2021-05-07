@@ -21,8 +21,6 @@ jobs:
       - name: "Automated Version Bump"
         id: version-bump
         uses: nnichols/maven-version-bump-action@v3
-        with:
-          tag-prefix: ''
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_API_KEY }}
       - name: 'Output Step'

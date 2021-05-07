@@ -39,7 +39,7 @@ jobs:
           git config user.name "trabab"
       - name: Publish JAR
         run: |
-          mvn -B versions:set -DnewVersion=1.0.9 -DgenerateBackupPoms=false --file opsgenie_user/pom.xml
+          mvn -B versions:set -DnewVersion=1.0.10 -DgenerateBackupPoms=false --file opsgenie_user/pom.xml
           git status
           git add opsgenie_user/pom.xml
           git status

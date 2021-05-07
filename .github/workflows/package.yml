@@ -45,7 +45,15 @@ jobs:
           git status
           git commit -m "test"
           git push
-
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_API_KEY }}
+      - id: next_version
+        uses: zwaldowski/semver-release-action@v1
+        with:
+          bump: patch
+          prefix: api_server_v
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo ${{ steps.next_version.outputs.version }}
+
+
 

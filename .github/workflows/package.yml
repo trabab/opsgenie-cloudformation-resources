@@ -52,7 +52,7 @@ jobs:
         with:
           bump: patch
           prefix: api_server_v
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GIT_API_KEY }}
       - run: echo ${{ steps.next_version.outputs.version }}
 
 

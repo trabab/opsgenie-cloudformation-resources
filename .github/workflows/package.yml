@@ -37,4 +37,13 @@ jobs:
       - name: Bump Version
         run: mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion} versions:commit
 
+      - name: Publish JAR
+        run: |
+            mvn -B versions:set -DnewVersion=1.0.10 -DgenerateBackupPoms=false --file opsgenie_user/pom.xml
+            git status
+            git add opsgenie_user/pom.xml
+            git status
+            git commit -m "test"
+            git push
+
 

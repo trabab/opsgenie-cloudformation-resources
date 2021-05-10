@@ -6,8 +6,7 @@ name: Java CI with Maven
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    paths: [opsgenie_user/**]
 
 jobs:
   build:
@@ -30,22 +29,10 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
-
       - name: Bump Version
         run: mvn build-helper:parse-version --file opsgenie_user versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion} versions:commit
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GIT_API_KEY }}
-      - name: Publish JAR
-        run: |
-          git status
-          git add opsgenie_user/pom.xml
-          git status
-          git commit -m "test"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_API_KEY }}
 

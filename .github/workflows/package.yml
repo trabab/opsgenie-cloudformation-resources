@@ -44,5 +44,7 @@ jobs:
             git status
             git commit -m "test"
             git push
+        with:
+          github_token: ${{ secrets.GIT_API_KEY }}
 
 

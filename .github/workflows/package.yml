@@ -35,4 +35,11 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GIT_API_KEY }}
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ tojson(github) }}
+          ENVIRONMENT: ${{ github.event.deployment.environment }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+          echo $ENVIRONMENT
 
